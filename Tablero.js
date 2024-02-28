@@ -47,7 +47,6 @@ export class Tablero {
                 }
             }while(ocupada)
                 
-            
         }
     }
 
@@ -58,15 +57,28 @@ export class Tablero {
     }
     // recorrer todas las casillas del tablero, comprobar si es una bomba, y si no lo es, ejecutar la funcion contarBombas()
     calculaAdyacentes(){
+        
 
-        for (let fila in this.tabla){
+        for (let fila = 0; fila < this.tabla.length; fila++){
+            
 
-            for (let columna in this.fila){
+            for (let columna = 0; columna < this.tabla[fila].length; columna++){
 
-                if(this.tabla[fila][columna] == 9) continue
+                
 
-                else this.contarBombas(fila, columna)
-                // asignar ese numero a la propiedad bombasAdyacentes del objeto Casilla 
+                let contador;
+
+                if(this.tabla[fila][columna] == 9){
+                    console.log("Aqui hay una bomba")
+                    continue // si es una bomba, saltamos a la siguiente
+                    
+                } else {
+                    console.log("Aqui hay agua")
+                    contador = this.contarBombas(fila, columna) // si esa casilla no es una bomba, contamos
+                    console.log("Constador: ", contador)
+                }
+                
+                //TODO asignar ese numero a la propiedad bombasAdyacentes del objeto Casilla 
 
             }
         }
@@ -75,13 +87,17 @@ export class Tablero {
     contarBombas(fila,columna){
         let contador = 0
 
-        for (let y = fila - 1; y < fila + 1; y++ ) {
-            if (y < 0 || y > this.filas-1) continue
-            for (let x = columna - 1; x < columna + 1; x++ ) {
-                if (x < 0 || x > this.columnas-1) continue
-                else contador++
+        for (let y = fila - 1; y <= fila + 1; y++){
+            if (y < 0 || y > this.filas - 1) continue
+            for (let x = columna - 1; x <= columna + 1; x++){
+                if (x < 0 || x > this.columnas - 1) continue
+                else{
+                    if (this.tabla[y][x] == 9) contador++
+                }
+                
             }
         }
+        return contador
     }
 
     anyadirTableroAlDOM(){
