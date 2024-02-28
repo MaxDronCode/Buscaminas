@@ -83,4 +83,17 @@ export class Tablero {
             }
         }
     }
+
+    anyadirTableroAlDOM(){
+        let tablero = document.getElementById("tablero");
+        for (let i = 0; i < this.filas; i++){
+            for (let j = 0; j < this.columnas; j++){
+                let cubo = document.createElement("div")
+                cubo.textContent = this.tabla[i][j]
+                cubo.className = "cubo"
+                tablero.appendChild(cubo)
+
+            }
+        }
+    }
 }

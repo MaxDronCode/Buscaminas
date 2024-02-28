@@ -1,0 +1,24 @@
+body{
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 44%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
+    
+
+}
+.tablero{
+    width: 500px;
+    height: 500px;
+    margin: 10% auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cubo{
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    text-align: center;
+    font-size: 40px;
+    line-height: 100px;
+}

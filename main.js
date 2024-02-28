@@ -8,6 +8,8 @@ function init() {
     tab1.generaBombas()
 
     tab1.pintarTablero()
+
+    tab1.anyadirTableroAlDOM()
     
     
 
