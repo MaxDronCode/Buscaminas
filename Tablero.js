@@ -76,6 +76,7 @@ export class Tablero {
                     console.log("Aqui hay agua")
                     contador = this.contarBombas(fila, columna) // si esa casilla no es una bomba, contamos
                     console.log("Constador: ", contador)
+                    this.tabla[fila][columna] = contador // se pinta el tablero
                 }
                 
                 //TODO asignar ese numero a la propiedad bombasAdyacentes del objeto Casilla 
