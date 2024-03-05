@@ -1,13 +1,17 @@
-export class Casilla {
+class Casilla {
     // Atributos
-    marcada;
-    revelada;
+    x;
+    y;
     bomba;
-    numBombasAlrededor;
+    adyacentes;
+    bandera;
+    descubierta;
     
     // Constructor
-    constructor(){
-        
+    constructor(x,y,bomba){
+        this.x = x
+        this.y = y
+        this.bomba = bomba
     }
     // Métodos
 

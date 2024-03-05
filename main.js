@@ -1,20 +1,16 @@
-import { Tablero } from "./Tablero.js"
-
 init()
 
 function init() {
-    let tab1 = new Tablero(3,3,2);
+    let tab1 = new Tablero(5,5,5);
     
     tab1.generaBombas()
 
-    
     tab1.calculaAdyacentes()
-    tab1.pintarTablero()
-    
-    tab1.anyadirTableroAlDOM()
-    
-    
-    
 
+    //tab1.pintarTablero()
+    
+    anyadirTableroAlDOM(tab1)
+    
+    
     
 }
