@@ -19,6 +19,8 @@ class Tablero {
             for (let columna = 0; columna < this.columnas; columna++){
                 let nuevaCasilla = new Casilla(columna, fila, false)   // Generar objetos casilla con bomba en false
                 tablero[fila].push(nuevaCasilla) // añadir Casilla al tablero
+                // añadir un elemento que tape la casilla, que al click sera destapado.
+                let tapa = document.createElement("div")
             }
         }
         return tablero
