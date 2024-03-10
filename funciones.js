@@ -10,13 +10,26 @@ function anyadirTableroAlDOM(pTab){
         for (let j = 0; j < pTab.columnas; j++){
             console.log("columna: ", j)
             let cubo = document.createElement("div")
+            cubo.setAttribute("coorX", i)
+            cubo.setAttribute("coorY", j)
+            let contenido = document.createElement("span");
             if (pTab.tabla[i][j].bomba == true){
-                cubo.innerHTML = pTab.tabla[i][j].bomba // Añadir imagen de unna bomba
+                contenido.innerHTML = "B" // Añadir imagen de unna bomba
             }else{
-                cubo.innerHTML = pTab.tabla[i][j].adyacentes // Añadir una fuente guay
+                contenido.innerHTML = pTab.tabla[i][j].adyacentes // Añadir una fuente guay
             }
+            contenido.style.visibility = "hidden"
+            cubo.appendChild(contenido)
             cubo.className = "cubo"
             tableroDOM.appendChild(cubo)
+
+            cubo.addEventListener("click", function() {
+                contenido.style.visibility = "visible"
+                this.classList.add("descubierto")
+                pTab.tabla[i][j].revelar()
+                
+            })
+
         }
     }
 }
