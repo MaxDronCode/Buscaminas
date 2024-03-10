@@ -1,7 +1,7 @@
 class Casilla {
     // Atributos
-    x;
     y;
+    x;
     bomba;
     adyacentes;
     bandera;

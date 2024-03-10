@@ -4,12 +4,15 @@ class Tablero {
     columnas;
     bombas;
     tabla;
+    
+    
     // Constructor
     constructor(filas, columnas, bombas){
         this.filas = filas;
         this.columnas = columnas;
         this.bombas = bombas;
         this.tabla = this.generaTablero()
+        this.juegoTerminado = false;
     }
     // Métodos
     generaTablero() {
@@ -23,7 +26,7 @@ class Tablero {
                 let tapa = document.createElement("div")
             }
         }
-        
+
         return tablero
     }
     generaBombas() {
@@ -70,5 +73,24 @@ class Tablero {
     }
     
 
-    destapaCasilla(){} // TODO
+    destapaCasilla(y,x){
+        let casilla = this.tabla[y][x]
+        
+        if (!casilla.descubierta) {
+            // casilla.descubierta = true
+            // actualizarVista(this,y,x)
+
+            if (this.tabla[y][x].bomba){
+                finDelJuego()
+                casilla.descubierta = true
+                actualizarVista(this,y,x)
+            } else if (this.tabla[y][x].adyacentes > 0){
+                casilla.descubierta = true
+                actualizarVista(this,y,x)
+            } else {
+                destaparCasilla(this,y,x)
+            }
+            
+        }
+    }
 }

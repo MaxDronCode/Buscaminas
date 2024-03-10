@@ -1,7 +1,7 @@
 init()
 
 function init() {
-    let tab1 = new Tablero(7,7,5);
+    let tab1 = new Tablero(6,6,5);
     
     tab1.generaBombas()
 
