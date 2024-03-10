@@ -38,6 +38,12 @@ body{
     border-color: lightgray;
 }
 
+.conBandera {
+    background-image: url(/img/TablerFlagQuestion.png);
+    background-size: cover;
+    background-position: center;
+}
+
 .fin {
     z-index: 100;
     font-size: 200px;

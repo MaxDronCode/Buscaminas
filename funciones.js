@@ -2,8 +2,7 @@ function anyadirTableroAlDOM(pTab){
     let tableroDOM = document.getElementById("tablero");
     tableroDOM.style.gridTemplateColumns = `repeat(${pTab.columnas}, 1fr)`
     tableroDOM.style.gridTemplateRows = `repeat(${pTab.filas}, 1fr)`
-    // tableroDOM.style.width = `calc(${pTab.columnas} * 140px)`
-    // tableroDOM.style.height = `calc(${pTab.filas} * 140px)`
+    
     
     for (let i = 0; i < pTab.filas; i++){
         console.log("fila:", i)
@@ -14,9 +13,9 @@ function anyadirTableroAlDOM(pTab){
             cubo.setAttribute("coorX", j)
             let contenido = document.createElement("span");
             if (pTab.tabla[i][j].bomba == true){
-                contenido.innerHTML = "B" // Añadir imagen de unna bomba
+                contenido.innerHTML = "B" // TODO Añadir imagen de unna bomba
             }else{
-                contenido.innerHTML = pTab.tabla[i][j].adyacentes // Añadir una fuente guay
+                contenido.innerHTML = pTab.tabla[i][j].adyacentes // TODO Añadir una fuente guay
             }
             contenido.style.visibility = "hidden"
             cubo.appendChild(contenido)
@@ -25,8 +24,24 @@ function anyadirTableroAlDOM(pTab){
 
             cubo.addEventListener("click", function() {
                 pTab.destapaCasilla(i,j)
+                if (comprobarVictoria(pTab)) {
+                    ganarJuego();
+                }
             })
+            // Event listener para el click derecho y poner la banterita
+            cubo.addEventListener("contextmenu", function(event) {
+                event.preventDefault()
 
+                let casilla = pTab.tabla[i][j]
+                casilla.bandera = !casilla.bandera
+
+                if (casilla.bandera) {
+                    cubo.classList.add("conBandera")
+                } else {
+                    cubo.classList.remove("conBandera")
+                }
+                
+            })
         }
     }
 }
@@ -51,9 +66,7 @@ function actualizarVista(tablero, y, x) {
 
     
 }
-function finDelJuego(){
-    document.getElementById('overlay').style.display = 'flex';
-} 
+
 
 function destaparCasilla(buscaminas,y,x){
     let casilla = buscaminas.tabla[y][x]
@@ -97,5 +110,27 @@ function obtenerCasillasAdyacentes(buscaminas, x, y) {
     return adyacentes;
 }
 
+function comprobarVictoria(buscaminas) {
+    for (let y = 0; y < buscaminas.filas; y++) {
+        for (let x = 0; x < buscaminas.columnas; x++) {
+            let casilla = buscaminas.tabla[y][x];
+            // Si encontramos una casilla que no es bomba y no está destapada, el juego aún no se gana
+            if (!casilla.bomba && !casilla.descubierta) {
+                return false;
+            }
+        }
+    }
+    // Si llegamos a este punto, todas las casillas no bomba están destapadas
+    return true;
+}
+
+function finDelJuego(){
+    document.getElementById('overlay').style.display = 'flex';
+} 
+
+function ganarJuego() {
+    document.getElementById('overlay').style.display = 'flex';
+    document.getElementById("mensajeFinal").innerHTML = "Enhorabuena! Has ganado."
+}
 
 
