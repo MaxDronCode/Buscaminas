@@ -5,14 +5,19 @@ class Casilla {
     bomba;
     adyacentes;
     bandera;
-    descubierta;
+    descubierta = false;
     
     // Constructor
     constructor(x,y,bomba){
         this.x = x
         this.y = y
         this.bomba = bomba
+        
     }
     // Métodos
+    revelar(){} // TODO
 
+    marcar(){} // TODO
+
+    
 }

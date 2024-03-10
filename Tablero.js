@@ -23,6 +23,7 @@ class Tablero {
                 let tapa = document.createElement("div")
             }
         }
+        
         return tablero
     }
     generaBombas() {
@@ -47,10 +48,8 @@ class Tablero {
                     continue // si es una bomba, saltamos a la siguiente
                 } else {
                     contador = this.contarBombas(fila, columna) // si esa casilla no es una bomba, contamos
-                    //this.tabla[fila][columna] = contador // se pinta el tablero
                     this.tabla[fila][columna].adyacentes = contador // asignamos el valor del atributo de casilla
                 }
-                //TODO asignar ese numero a la propiedad bombasAdyacentes del objeto Casilla 
             }
         }
     }
@@ -69,14 +68,7 @@ class Tablero {
         }
         return contador
     }
-    pintarTablero(){
-        for (let i = 0; i < this.filas; i++) {
-            //console.log(this.tabla[i])
-            for (let j = 0; j < this.columnas; j++){
-                console.log(this.tabla[i][j].bomba)
-            }
-        }
-    }
-
     
+
+    destapaCasilla(){} // TODO
 }
