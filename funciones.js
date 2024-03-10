@@ -24,10 +24,7 @@ function anyadirTableroAlDOM(pTab){
             tableroDOM.appendChild(cubo)
 
             cubo.addEventListener("click", function() {
-    
                 pTab.destapaCasilla(i,j)
-                //actualizarVista(pTab,i,j)
-                //if (pTab.tabla[i][j].bomba) finDelJuego()
             })
 
         }
@@ -49,30 +46,26 @@ function actualizarVista(tablero, y, x) {
     
     if (casilla.bomba){
         cubo.style.backgroundColor = "red";
-        finDelJuego()
+        
     }
 
     
 }
 function finDelJuego(){
-    //alert("Fin del juego")
-} // TODO
+    document.getElementById('overlay').style.display = 'flex';
+} 
 
 function destaparCasilla(buscaminas,y,x){
     let casilla = buscaminas.tabla[y][x]
 
-     // Si la casilla ya está destapada o es una bomba, no hacemos nada.
      if (casilla.descubierta || casilla.bomba) return;
 
-    // Destapamos la casilla actual y actualizamos la vista.
     casilla.descubierta = true;
     actualizarVista(buscaminas, y, x);
 
-    // Continuar solo si es una casilla "agua".
     if (casilla.adyacentes == 0) {
         let adyacentes = obtenerCasillasAdyacentes(buscaminas, x, y);
         for (let adyacente of adyacentes) {
-            // Solo destapamos adyacentes si no son bombas.
             if (!adyacente.bomba) {
                 destaparCasilla(buscaminas, adyacente.y, adyacente.x);
             }
@@ -85,19 +78,17 @@ function destaparCasilla(buscaminas,y,x){
 function obtenerCasillasAdyacentes(buscaminas, x, y) {
     let adyacentes = [];
 
-    // Direcciones en cruz: Arriba, Abajo, Izquierda, Derecha
     let direcciones = [
-        { offsetX: 0, offsetY: -1 }, // Arriba
-        { offsetX: 0, offsetY: 1 }, // Abajo
-        { offsetX: -1, offsetY: 0 }, // Izquierda
-        { offsetX: 1, offsetY: 0 } // Derecha
+        { offsetX: 0, offsetY: -1 },
+        { offsetX: 0, offsetY: 1 }, 
+        { offsetX: -1, offsetY: 0 }, 
+        { offsetX: 1, offsetY: 0 } 
     ];
 
     for (let dir of direcciones) {
         let newX = x + dir.offsetX;
         let newY = y + dir.offsetY;
 
-        // Comprobar límites
         if (newX >= 0 && newX < buscaminas.columnas && newY >= 0 && newY < buscaminas.filas) {
             adyacentes.push(buscaminas.tabla[newY][newX]);
         }

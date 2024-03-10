@@ -81,9 +81,9 @@ class Tablero {
             // actualizarVista(this,y,x)
 
             if (this.tabla[y][x].bomba){
-                finDelJuego()
                 casilla.descubierta = true
                 actualizarVista(this,y,x)
+                finDelJuego()
             } else if (this.tabla[y][x].adyacentes > 0){
                 casilla.descubierta = true
                 actualizarVista(this,y,x)
