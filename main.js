@@ -1,7 +1,11 @@
 init()
 
 function init() {
-    let tab1 = new Tablero(4,4,1);
+    let filas = parseInt(prompt("Indique el número de filas:"))
+    let columnas = parseInt(prompt("Indique el número de columnas:"))
+    let bombas = parseInt(prompt("Indique el número de bombas:"))
+
+    let tab1 = new Tablero(filas,columnas,bombas);
     
     tab1.generaBombas()
 
