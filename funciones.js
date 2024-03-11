@@ -71,7 +71,7 @@ function actualizarVista(tablero, y, x) {
 function destaparCasilla(buscaminas,y,x){
     let casilla = buscaminas.tabla[y][x]
 
-     if (casilla.descubierta || casilla.bomba) return;
+    if (casilla.descubierta || casilla.bomba) return;
 
     casilla.descubierta = true;
     actualizarVista(buscaminas, y, x);
