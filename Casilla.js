@@ -17,7 +17,7 @@ class Casilla {
     // Métodos
     revelar(){
         this.descubierta = true
-    } // TODO
+    }
 
     marcar(){} // TODO
 
