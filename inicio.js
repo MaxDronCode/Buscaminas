@@ -15,7 +15,7 @@ function init() {
 
 function abrirFormulario(){
     let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
-    width=600,height=300,left=300,top=100`;
+    width=600,height=900,left=300,top=100`;
     let popUpForm = window.open("formulario.html","popUp",params)
 }
 

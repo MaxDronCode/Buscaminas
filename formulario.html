@@ -5,34 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="formulario.js"></script>
     <title>Document</title>
+    <link rel="stylesheet" href="formulario.css">
 </head>
 <body onload="init()">
     <form action="" method="post" id="miForm">
         <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
         <br>
         <label for="apellido">Apellido</label>
-        <input type="text" name="apellido" id="apellido">
+        <input type="text" name="apellido" id="apellido" placeholder="Apellido">
         <br>
         <label for="fechaNacimiento">Fecha de Nacimiento</label>
-        <input type="date" name="date" id="fechaNacimiento">
+        <input type="date" name="date" id="fechaNacimiento" placeholder="Fecha de Nacimiento">
         <br>
         <label for="nick">Nombre de Usuario</label>
-        <input type="text" name="nick" id="nick">
+        <input type="text" name="nick" id="nick" placeholder="Nick">
         <br>
         <label for="email">Mail</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" placeholder="Email">
         <br>
         <label for="filas">Filas</label>
-        <input type="number" name="filas" id="filas">
+        <input type="number" name="filas" id="filas" placeholder="Número de Filas">
         <br>
         <label for="columnas">Columnas</label>
-        <input type="number" name="columnas" id="columnas">
+        <input type="number" name="columnas" id="columnas" placeholder="Número de columnas">
         <br>
         <label for="bombas">Bombas</label>
-        <input type="number" name="bombas" id="bombas">
+        <input type="number" name="bombas" id="bombas" placeholder="Número de bombas">
         <br>
-        <button type="button" id="botonSubmit">Enviar</button>
+        <button type="button" id="botonSubmit" class="buttonSubmit">Enviar</button>
 
     </form>
 </body>
