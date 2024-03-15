@@ -11,11 +11,44 @@
         <script defer src="funciones.js"></script>
         <script defer src="main.js"></script>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="inicio.css">
+        
     </head>
     <body>
         <div id="tablero" class="tablero"></div>
         <div id="overlay" style="display: none;">
             <div id ="mensajeFinal" class="mensajeFinal">¡Boom! Fin del juego. Has perdido.</div>
+            <a href="dom.html">
+                <button class="btn" type="button" id="btnJugar">
+                <strong>JUGAR DE NUEVO</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+    
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    
+                </div>
+            </button>
+            </a>
+
+            <a href="inicio.html">
+                <button class="btn" type="button" id="btnJugar">
+                <strong>VOLVER AL INICIO</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+    
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    
+                </div>
+            </button>
+            </a>
+
+        
         </div>
     </body>
 </html>
