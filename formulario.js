@@ -1,3 +1,8 @@
+function init(){
+    recuperaDatos()
+    guardarFormEnLocaleStorage()
+}
+
 function guardarFormEnLocaleStorage() {
 
     let botonSubmit = document.getElementById("botonSubmit")
@@ -26,6 +31,18 @@ function guardarFormEnLocaleStorage() {
     
 }
 
-function init(){
-    guardarFormEnLocaleStorage()
+
+
+function recuperaDatos(){
+    if (localStorage.hasOwnProperty("nombre") == true){
+        let formulario = document.getElementById("miForm")
+        formulario.nombre.value = localStorage.nombre
+        formulario.apellido.value = localStorage.apellido
+        formulario.fechaNacimiento.value = localStorage.fechaNacimiento
+        formulario.nick.value = localStorage.nick
+        formulario.email.value = localStorage.email 
+        formulario.filas.value = localStorage.filas
+        formulario.columnas.value = localStorage.columnas
+        formulario.bombas.value = localStorage.bombas
+    }
 }

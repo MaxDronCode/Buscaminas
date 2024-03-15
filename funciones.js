@@ -4,15 +4,15 @@ function anyadirTableroAlDOM(pTab) {
     tableroDOM.style.gridTemplateRows = `repeat(${pTab.filas}, 1fr)`
 
     for (let i = 0; i < pTab.filas; i++) {
-        console.log('fila:', i)
         for (let j = 0; j < pTab.columnas; j++) {
-            console.log('columna: ', j)
             let cubo = document.createElement('div')
             cubo.setAttribute('coorY', i)
             cubo.setAttribute('coorX', j)
             let contenido = document.createElement('span')
             if (pTab.tabla[i][j].bomba == true) {
                 contenido.innerHTML = 'B' // TODO Añadir imagen de unna bomba
+            }else if (pTab.tabla[i][j].adyacentes == 0){
+                contenido.innerHTML = ""
             } else {
                 contenido.innerHTML = pTab.tabla[i][j].adyacentes // TODO Añadir una fuente guay
             }
@@ -29,6 +29,7 @@ function anyadirTableroAlDOM(pTab) {
             })
             // Event listener para el click derecho y poner la banterita
             cubo.addEventListener('contextmenu', function (event) {
+                console.log("Click derecho!")
                 event.preventDefault()
 
                 let casilla = pTab.tabla[i][j]
@@ -52,6 +53,7 @@ function actualizarVista(tablero, y, x) {
     if (casilla.descubierta) {
         let contenido = cubo.querySelector('span')
         contenido.style.visibility = 'visible'
+        
         cubo.classList.add('descubierto')
     }
 
@@ -85,7 +87,12 @@ function obtenerCasillasAdyacentes(buscaminas, x, y) {
         { offsetX: 0, offsetY: -1 },
         { offsetX: 0, offsetY: 1 },
         { offsetX: -1, offsetY: 0 },
-        { offsetX: 1, offsetY: 0 }
+        { offsetX: 1, offsetY: 0 },
+
+        { offsetX: -1, offsetY: -1},
+        { offsetX: -1, offsetY: +1},
+        { offsetX: +1, offsetY: -1},
+        { offsetX: +1, offsetY: +1},
     ]
 
     for (let dir of direcciones) {
