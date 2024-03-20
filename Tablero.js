@@ -83,6 +83,7 @@ class Tablero {
             if (this.tabla[y][x].bomba){
                 casilla.descubierta = true
                 actualizarVista(this,y,x)
+                destaparTodasLasBombas(this)
                 finDelJuego()
             } else if (this.tabla[y][x].adyacentes > 0){
                 casilla.descubierta = true

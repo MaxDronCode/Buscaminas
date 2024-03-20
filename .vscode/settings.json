@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/dom.html"
+    "livePreview.defaultPreviewPath": "/dom.html",
+    "accessibility.signals.sounds.volume": 0
 }

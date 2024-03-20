@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="formulario.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body onload="init()">
+    <form action="submit" method="post" id="miForm" novalidate>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+        <span id="errorNombre" class="error"></span>
+        <br>
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" placeholder="Apellido" required >
+        <span id="errorApellido" class="error"></span>
+        <br>
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <input type="date" name="date" id="fechaNacimiento" placeholder="Fecha de Nacimiento" required >
+        <span id="errorfecha" class="error"></span>
+        <br>
+        <label for="nick">Nombre de Usuario</label>
+        <input type="text" name="nick" id="nick" placeholder="Nick" required >
+        <span id="errorNick" class="error"></span>
+        <br>
+        <label for="email">Mail</label>
+        <input type="email" name="email" id="email" placeholder="Email" pattern=".{2,}@.{2,}[.].{2,}" required >
+        <span id="errorEmail" class="error"></span>
+        <br>
+        <label for="filas">Filas</label>
+        <input type="number" name="filas" id="filas" placeholder="Número de Filas" min=1 required >
+        <span id="errorFilas" class="error"></span>
+        <br>
+        <label for="columnas">Columnas</label>
+        <input type="number" name="columnas" id="columnas" placeholder="Número de columnas" min="1" required >
+        <span id="errorColumnas" class="error"></span>
+        <br>
+        <label for="bombas">Bombas</label>
+        <input type="number" name="bombas" id="bombas" placeholder="Número de bombas" max="" min="0" required >
+        <span id="errorBombas" class="error"></span>
+        <br>
+        <button type="submit" id="botonSubmit" class="buttonSubmit">Enviar</button>
+
+    </form>
+</body>
+</html>

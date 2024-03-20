@@ -10,7 +10,7 @@ function anyadirTableroAlDOM(pTab) {
             cubo.setAttribute('coorX', j)
             let contenido = document.createElement('span')
             if (pTab.tabla[i][j].bomba == true) {
-                contenido.innerHTML = 'B' // TODO Añadir imagen de unna bomba
+                contenido.innerHTML = 'B' 
             }else if (pTab.tabla[i][j].adyacentes == 0){
                 contenido.innerHTML = ""
             } else {
@@ -48,7 +48,7 @@ function anyadirTableroAlDOM(pTab) {
 function actualizarVista(tablero, y, x) {
     let selector = `[coorY="${y}"][coorX="${x}"]`
     let cubo = document.querySelector(selector)
-    let casilla = tablero.tabla[y][x] // Este es uno de los interruptores
+    let casilla = tablero.tabla[y][x] 
 
     if (casilla.descubierta) {
         let contenido = cubo.querySelector('span')
@@ -59,6 +59,7 @@ function actualizarVista(tablero, y, x) {
 
     if (casilla.bomba) {
         cubo.style.backgroundColor = 'red'
+        cubo.classList.add("bomba")
     }
 }
 
@@ -124,6 +125,14 @@ function comprobarVictoria(buscaminas) {
     }
     // Si llegamos a este punto, todas las casillas no bomba están destapadas
     return true
+}
+
+function destaparTodasLasBombas(buscaminas){
+    for (let i = 0; i < buscaminas.filas; i++){
+        for (let j = 0; j < buscaminas.columnas; j++){
+            if (buscaminas.tabla[i][j].bomba) actualizarVista(buscaminas, i, j)
+        }
+    }
 }
 
 function finDelJuego() {

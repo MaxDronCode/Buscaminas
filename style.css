@@ -45,6 +45,12 @@ body{
     border-color: lightgray;
 }
 
+.bomba{
+    background-image: url(img/mine.png);
+    background-size: cover;
+    background-position: center;
+}
+
 .conBandera {
     background-image: url(img/TablerFlagQuestion.png);
     background-size: cover;
