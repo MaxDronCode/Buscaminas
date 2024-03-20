@@ -24,3 +24,6 @@ input{
 label{
     margin-left: 10px;
 }
+.error{
+    color: rgb(208, 208, 0);
+}

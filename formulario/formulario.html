@@ -22,11 +22,11 @@
         <span id="errorfecha" class="error"></span>
         <br>
         <label for="nick">Nombre de Usuario</label>
-        <input type="text" name="nick" id="nick" placeholder="Nick" required >
+        <input type="text" name="nick" id="nick" placeholder="Nick" pattern=".{1,}[\d]{1,}" required >
         <span id="errorNick" class="error"></span>
         <br>
         <label for="email">Mail</label>
-        <input type="email" name="email" id="email" placeholder="Email" pattern=".{2,}@.{2,}[.].{2,}" required >
+        <input type="email" name="email" id="email" placeholder="Email" pattern=".{2,}@itb.cat" required >
         <span id="errorEmail" class="error"></span>
         <br>
         <label for="filas">Filas</label>

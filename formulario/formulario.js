@@ -43,8 +43,11 @@ function agregarEventosFormulario(){
         let errorfecha = document.getElementById("errorfecha")
         if (fechaInput.validity.valueMissing) {
             errorfecha.textContent = "El campo Fecha no puede estar vacío."
+        } else if (!validarMayorEdad()){
+            errorfecha.textContent = "Tienes que ser mayor de edad!"
         } else {
             errorfecha.textContent = ""
+
         }
     })
 
@@ -53,6 +56,8 @@ function agregarEventosFormulario(){
         let errorNick = document.getElementById("errorNick")
         if (nickInput.validity.valueMissing) {
             errorNick.textContent = "El campo Nick no puede estar vacío."
+        } else if (nickInput.validity.patternMismatch){
+            errorNick.textContent = "El nick tiene que acabar en un número!"
         } else {
             errorNick.textContent = ""
         }
@@ -64,7 +69,7 @@ function agregarEventosFormulario(){
         if (emailInput.validity.valueMissing) {
             errorEmail.textContent = "El campo Email no puede estar vacío."
         } else if (emailInput.validity.patternMismatch){
-            errorEmail.textContent = "El formato de mail válido es __@__.__"
+            errorEmail.textContent = "El formato de mail válido es __@itb.cat"
         } else {
             errorEmail.textContent = ""
         }
@@ -147,11 +152,14 @@ function validacion(){
 
     //fecha
     let fechaInput = document.getElementById("fechaNacimiento")
+    let errorFecha = document.getElementById("errorFecha")
     if (fechaInput.validity.valueMissing) esValido = false
+    else if (!validarMayorEdad()) esValido = false
+    
 
     //nick
     let nickInput = document.getElementById("nick")
-    if (nickInput.validity.valueMissing) esValido = false
+    if (nickInput.validity.valueMissing || nickInput.validity.patternMismatch) esValido = false
 
     //email
     let emailInput = document.getElementById("email")
@@ -185,4 +193,18 @@ function actualizarMaxBombas() {
     let maxBombas = filas * columnas - 1
 
     bombasInput.setAttribute('max', maxBombas.toString())
+}
+
+function validarMayorEdad() {
+    let inputFechaNacimiento = document.getElementById("fechaNacimiento")
+    let fechaSeleccionada = new Date(inputFechaNacimiento.value)
+    let fechaActual = new Date()
+    let edad = fechaActual.getFullYear() - fechaSeleccionada.getFullYear()
+    let mes = fechaActual.getMonth() - fechaSeleccionada.getMonth()
+
+    if (mes < 0 || (mes === 0 && fechaActual.getDate() < fechaSeleccionada.getDate())) {
+        edad--
+    }
+
+    return edad >= 18
 }
